@@ -7,6 +7,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,3 +28,15 @@ jobs:
           name: resume
           path: resume.pdf
           if-no-files-found: error
+
+      - name: Publish latest release
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: ncipollo/release-action@v1
+        with:
+          tag: latest
+          name: Latest Resume
+          body: Auto-published from the latest push to main.
+          allowUpdates: true
+          replacesArtifacts: true
+          artifacts: resume.pdf
+          token: ${{ secrets.GITHUB_TOKEN }}
