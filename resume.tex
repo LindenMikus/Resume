@@ -1,0 +1,91 @@
+\documentclass[10.5pt]{article}
+
+% --- Single column, ATS-safe structure — sans font + accent color ---
+\usepackage[margin=0.65in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{carlito}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{1F4E5A}
+\definecolor{accentlight}{HTML}{5B8A99}
+\definecolor{textgray}{HTML}{2B2B2B}
+\definecolor{rulelight}{HTML}{9FB8C0}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\color{textgray}
+
+\titleformat{\section}
+  {\color{accent}\bfseries\fontsize{11}{13}\selectfont}
+  {}{0em}{}[{\color{rulelight}\titlerule[0.9pt]}]
+\titlespacing{\section}{0pt}{11pt}{4pt}
+
+\setlist[itemize]{leftmargin=16pt, labelsep=6pt, labelwidth=10pt, itemindent=0pt, topsep=2pt, itemsep=0pt, parsep=0pt}
+\newcommand{\sqbullet}{\raisebox{0.4ex}{\textcolor{accentlight}{\rule{3.2pt}{3.2pt}}}}
+\renewcommand{\labelitemi}{\sqbullet}
+
+% #1 title  #2 dates  #3 org  #4 location
+\newcommand{\jobheader}[4]{%
+  \vspace{13pt}
+  \textbf{#1} \hfill {\color{accentlight}\small #2}\\
+  {\small\color{textgray!80} #3} \hfill {\small\color{textgray!80} #4}\\[-2pt]%
+}
+
+\begin{document}
+
+% --- Header ---
+\begin{center}
+  {\fontsize{22}{24}\selectfont\bfseries\color{accent} Linden Mikus}\\[3pt]
+  {\small\color{textgray!75}
+    Victoria, BC \;\textcolor{rulelight}{|}\; lindenmikus@gmail.com \;\textcolor{rulelight}{|}\; (250) 618-0431 \;\textcolor{rulelight}{|}\;
+    \href{https://www.linkedin.com/in/linden-mikus/}{linkedin.com/in/linden-mikus}}
+\end{center}
+
+\vspace{-4pt}
+
+% --- Profile ---
+\section*{Profile}
+[PLACEHOLDER] One to two sentences: years of experience, core stack, a headline scope/impact statement, and what you're targeting next.
+
+% --- Skills ---
+\section*{Skills}
+\textbf{\color{accentlight}Languages:} C\#, Java, Python, TypeScript, JavaScript, SQL, PowerShell \\
+\textbf{\color{accentlight}Frameworks:} ASP.NET, Django, Dapper, Entity Framework, Razor Pages, React, Angular, Blazor \\
+\textbf{\color{accentlight}Databases:} MS SQL Server, PostgreSQL, SQLite \\
+\textbf{\color{accentlight}Platform \& DevOps:} Git, GCP, AWS, Docker, Kubernetes, Terraform, ArgoCD, GitLab CI, Jenkins, Octopus Deploy, Nexus, Harbor \\
+\textbf{\color{accentlight}Testing / QA:} xUnit, NUnit, JUnit, pytest, Coverlet, Gherkin, headless \& browser-based E2E automation
+
+% --- Experience ---
+\section*{Experience}
+
+\jobheader{[Job Title]}{[Start] -- [End]}{[Company Name]}{[City, ST]}
+\begin{itemize}
+  \item PLACEHOLDER achievement — include scope and a metric.
+  \item PLACEHOLDER achievement — include scope and a metric.
+  \item PLACEHOLDER achievement — include scope and a metric.
+\end{itemize}
+
+\jobheader{[Job Title]}{[Start] -- [End]}{[Company Name]}{[City, ST]}
+\begin{itemize}
+  \item PLACEHOLDER achievement — include scope and a metric.
+  \item PLACEHOLDER achievement — include scope and a metric.
+\end{itemize}
+
+\jobheader{[Job Title]}{[Start] -- [End]}{[Company Name]}{[City, ST]}
+\begin{itemize}
+  \item PLACEHOLDER achievement — include scope and a metric.
+  \item PLACEHOLDER achievement — include scope and a metric.
+\end{itemize}
+
+% --- Education ---
+\section*{Education}
+\textbf{B.Sc., Major in Computing Science} \hfill {\color{textgray!80} September 2009 -- 2013}\\
+{\color{textgray!80} Vancouver Island University \hfill Nanaimo, BC}
+
+\end{document}

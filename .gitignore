@@ -1,0 +1,14 @@
+# LaTeX build output
+build/
+resume.pdf
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.toc
+
+# OS junk
+.DS_Store
+Thumbs.db
