@@ -22,7 +22,14 @@ pdflatex resume.tex
 
 ## CI
 
-Every push to `main` (and every PR) triggers `.github/workflows/build.yml`, which compiles `resume.tex` with pdfLaTeX and uploads the resulting `resume.pdf` as a workflow artifact — download it from the Actions run's summary page.
+Every push to `main` (and every PR) triggers `.github/workflows/build.yml`, which compiles `resume.tex` with pdfLaTeX and:
+
+- uploads `resume.pdf` as a workflow artifact (zipped, from the Actions run's summary page) on every push and PR
+- on pushes to `main`, publishes/updates a `latest` GitHub Release with `resume.pdf` attached as a direct-download asset — always available at:
+
+  ```
+  https://github.com/LindenMikus/Resume/releases/latest/download/resume.pdf
+  ```
 
 ## Editing
 
