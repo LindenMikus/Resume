@@ -30,6 +30,10 @@
 \newcommand{\sqbullet}{\raisebox{0.4ex}{\textcolor{accentlight}{\rule{3.2pt}{3.2pt}}}}
 \renewcommand{\labelitemi}{\sqbullet}
 
+% auto-computed years of experience, based on career start year
+\newcommand{\careerstartyear}{2013}
+\newcommand{\yearsexperience}{\the\numexpr\year-\careerstartyear\relax}
+
 % #1 title  #2 dates  #3 org  #4 location
 \newcommand{\jobheader}[4]{%
   \vspace{13pt}
@@ -51,7 +55,7 @@
 
 % --- Profile ---
 \section*{Profile}
-[PLACEHOLDER] One to two sentences: years of experience, core stack, a headline scope/impact statement, and what you're targeting next.
+Senior Software Engineer with \yearsexperience{} years building backend systems and platform infrastructure, most recently architecting payments, billing, and compliance APIs (.NET/C\#) for a fintech platform processing \$90B in annual transaction volume across 140K+ merchants. Pairs deep backend ownership with hands-on DevOps practice across CI/CD, Kubernetes, and cloud infrastructure, and is seeking a senior backend or platform engineering role where that full-lifecycle ownership drives impact.
 
 % --- Skills ---
 \section*{Skills}
@@ -64,23 +68,24 @@
 % --- Experience ---
 \section*{Experience}
 
-\jobheader{[Job Title]}{[Start] -- [End]}{[Company Name]}{[City, ST]}
+\jobheader{Sr. Software Engineer}{Jan 2022 -- Aug 2026}{Shift4 Payments}{Victoria, BC}
+{\small\color{textgray!80}\textit{Payments platform processing \$90B in annual transaction volume across 140K+ merchants.}}
 \begin{itemize}
-  \item PLACEHOLDER achievement — include scope and a metric.
-  \item PLACEHOLDER achievement — include scope and a metric.
-  \item PLACEHOLDER achievement — include scope and a metric.
+  \item Created a Multi-Factor-Authentication login solution (shared Nuget package used between two API integrations with web UI screens) shared across three different merchant/staff portal websites for PCI 4.0 compliance. 
+  \item Designed and built new .NET APIs (REST/JSON) from the ground up for merchant onboarding: a Pricing Package API enabling Channel Partners to configure shared billing-item fee and commission structures across groups of sub-merchants, replacing per-merchant manual setup, and a Merchant API for creating new merchants, replacing legacy onboarding methods; both were architected for standalone reuse.
+  \item Migrated the platform's SEPA/BACS network provider bank, switching the internal settlement account, adding additional required information to bank-to-bank files (PAIN008 \& PAIN001) with return/reject handling and bulk re-mandating merchant bank accounts to authorize debits under the new provider.
+  \item Integrated a third-party AML transaction screening service via API and extended electronic bank payment records across the API and UI to capture additional customer KYC fields.
+  \item Maintained and extended a microservices-based Merchant Onboarding platform (Django/Python backend, React frontend, Celery background tasks), adding new workflows for application creation and alerting.
+  \item Built an alternative merchant onboarding experience with Persona (third-party identity verification) and its full CI/CD pipeline, using GitLab CI to build images to Harbor, syncing to GCP Artifact Registry, and deploying via ArgoCD to a GCP Kubernetes cluster, reaching production for internal staff use ahead of the merchant pilot phase.
+  \item Maintained and extended a Gherkin end-to-end test automation suite, adding new scenarios and features across onboarding, payments, and authentication flows, while modernizing CI pipelines across multiple frontend and backend services.
+
 \end{itemize}
 
-\jobheader{[Job Title]}{[Start] -- [End]}{[Company Name]}{[City, ST]}
+\jobheader{Software Developer}{Aug 2013 -- Jan 2022}{Middi Mainframe Associates Ltd.}{Nanaimo, BC}
+{\small\color{textgray!80}\textit{Enterprise retail/marina management platform used by municipal marinas, harbour authorities, and retailers.}}\\[-8pt]
 \begin{itemize}
-  \item PLACEHOLDER achievement — include scope and a metric.
-  \item PLACEHOLDER achievement — include scope and a metric.
-\end{itemize}
-
-\jobheader{[Job Title]}{[Start] -- [End]}{[Company Name]}{[City, ST]}
-\begin{itemize}
-  \item PLACEHOLDER achievement — include scope and a metric.
-  \item PLACEHOLDER achievement — include scope and a metric.
+  \item Acted as technical point of contact for merchant clients, designing and estimating custom software solutions directly with stakeholders while delegating and coordinating development tasks across the team.
+  \item Built and maintained the TCP-based server connecting client terminals to the SQL backend, plus several standalone modules (POS, inventory, Accounting export to QuickBooks, metered billing, recurring billing runs, reservations, reporting) for enterprise retail/marina management platform.
 \end{itemize}
 
 % --- Education ---
