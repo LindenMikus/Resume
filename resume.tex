@@ -1,7 +1,7 @@
 \documentclass[10.5pt]{article}
 
 % --- Single column, ATS-safe structure — sans font + accent color ---
-\usepackage[margin=0.65in]{geometry}
+\usepackage[margin=0.55in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{carlito}
 \renewcommand{\familydefault}{\sfdefault}
@@ -24,7 +24,7 @@
 \titleformat{\section}
   {\color{accent}\bfseries\fontsize{11}{13}\selectfont}
   {}{0em}{}[{\color{rulelight}\titlerule[0.9pt]}]
-\titlespacing{\section}{0pt}{11pt}{4pt}
+\titlespacing{\section}{0pt}{8pt}{3pt}
 
 \setlist[itemize]{leftmargin=16pt, labelsep=6pt, labelwidth=10pt, itemindent=0pt, topsep=2pt, itemsep=0pt, parsep=0pt}
 \newcommand{\sqbullet}{\raisebox{0.4ex}{\textcolor{accentlight}{\rule{3.2pt}{3.2pt}}}}
@@ -36,7 +36,7 @@
 
 % #1 title  #2 dates  #3 org  #4 location
 \newcommand{\jobheader}[4]{%
-  \vspace{13pt}
+  \vspace{9pt}
   \textbf{#1} \hfill {\color{accentlight}\small #2}\\
   {\small\color{textgray!80} #3} \hfill {\small\color{textgray!80} #4}\\[-2pt]%
 }
@@ -48,49 +48,55 @@
   {\fontsize{22}{24}\selectfont\bfseries\color{accent} Linden Mikus}\\[3pt]
   {\small\color{textgray!75}
     Victoria, BC \;\textcolor{rulelight}{|}\; lindenmikus@gmail.com \;\textcolor{rulelight}{|}\; (250) 618-0431 \;\textcolor{rulelight}{|}\;
-    \href{https://www.linkedin.com/in/linden-mikus/}{linkedin.com/in/linden-mikus}}
+    \href{https://www.linkedin.com/in/linden-mikus/}{linkedin.com/in/linden-mikus}}\\[4pt]
+  {\bfseries\color{accent}\small FINTECH PLATFORM ENGINEER \;\textcolor{rulelight}{|}\; PAYMENTS AT SCALE}
 \end{center}
 
 \vspace{-4pt}
 
 % --- Profile ---
 \section*{Profile}
-Senior Software Engineer with \yearsexperience{} years building backend systems and platform infrastructure, most recently architecting payments, billing, and compliance APIs (.NET/C\#) for a fintech platform processing \$90B in annual transaction volume across 140K+ merchants. Pairs deep backend ownership with hands-on DevOps practice across CI/CD, Kubernetes, and cloud infrastructure, and is seeking a senior backend or platform engineering role where that full-lifecycle ownership drives impact.
+Senior Software Engineer with \yearsexperience{} years of experience building full-stack platforms for mission-critical financial systems. Combines deep expertise in payments, billing, onboarding, compliance, and RESTful APIs with hands-on ownership across cloud infrastructure, Kubernetes, and CI/CD.
 
 % --- Skills ---
 \section*{Skills}
-\textbf{\color{accentlight}Languages:} C\#, Java, Python, TypeScript, JavaScript, SQL, PowerShell \\
-\textbf{\color{accentlight}Frameworks:} ASP.NET, Django, Dapper, Entity Framework, Razor Pages, React, Angular, Blazor \\
-\textbf{\color{accentlight}Databases:} MS SQL Server, PostgreSQL, SQLite \\
-\textbf{\color{accentlight}Platform \& DevOps:} Git, GCP, AWS, Docker, Kubernetes, Terraform, ArgoCD, GitLab CI, Jenkins, Octopus Deploy, Nexus, Harbor \\
-\textbf{\color{accentlight}Testing / QA:} xUnit, NUnit, JUnit, pytest, Coverlet, Gherkin, headless \& browser-based E2E automation
+\textbf{\color{accentlight}Languages:} C\#, SQL, Java, PowerShell, Python, Ruby, Javascript, TypeScript \\
+\textbf{\color{accentlight}Frameworks:} ASP.NET, Django, React, Angular \\
+\textbf{\color{accentlight}Databases:} MS SQL Server, PostgreSQL \\
+\textbf{\color{accentlight}Platform \& DevOps:} GCP, AWS, Docker, Kubernetes, ArgoCD \\
+\textbf{\color{accentlight}Testing / QA:} xUnit, NUnit, Gherkin, E2E automation
 
 % --- Experience ---
 \section*{Experience}
 
-\jobheader{Sr. Software Engineer}{Jan 2022 -- Aug 2026}{Shift4 Payments}{Victoria, BC}
-{\small\color{textgray!80}\textit{Payments platform processing \$90B in annual transaction volume across 140K+ merchants part of the Bambora division.}}
+\jobheader{Sr. Software Engineer}{Jan 2022 -- Aug 2026}{Shift4 Payments / Worldline}{Victoria, BC}
+{\small\color{textgray!80}\textit{Full-Stack engineer who led projects to completion across three unique platforms (e-commerce, billing | card present gateway | merchant onboarding) in a 24/7 operation (Bambora division).}}
 \begin{itemize}
-  \item Created a Multi-Factor-Authentication login solution (shared Nuget package used between two API integrations with web UI screens) shared across three different merchant/staff portal websites for PCI 4.0 compliance. 
-  \item Designed and built new .NET APIs (REST/JSON) from the ground up for merchant onboarding: a Pricing Package API enabling Channel Partners to configure shared billing-item fee and commission structures across groups of sub-merchants, replacing per-merchant manual setup, and a Merchant API for creating new merchants, replacing legacy onboarding methods; both were architected for standalone reuse.
-  \item Migrated the platform's SEPA/BACS network provider bank, switching the internal settlement account, adding additional required information to bank-to-bank files (PAIN008 \& PAIN001) with return/reject handling and bulk re-mandating merchant bank accounts to authorize debits under the new provider.
-  \item Integrated a third-party AML transaction screening service via API and extended electronic bank payment records across the API and UI to capture additional customer KYC fields.
-  \item Maintained and extended a microservices-based Merchant Onboarding platform (Django/Python backend, React frontend, Celery background tasks), adding new workflows for application creation and alerting.
-  \item Built an alternative merchant onboarding experience with Persona (third-party identity verification) and its full CI/CD pipeline, using GitLab CI to build images to Harbor, syncing to GCP Artifact Registry, and deploying via ArgoCD to a GCP Kubernetes cluster, reaching production for internal staff use ahead of the merchant pilot phase.
-  \item Maintained and extended a Gherkin end-to-end test automation suite, adding new scenarios and features across onboarding, payments, and authentication flows, while modernizing CI pipelines across multiple frontend and backend services.
-
+  \item Supported end-to-end payment processing across card-present (EMV chip, NFC/contactless, magnetic stripe) and card-not-present and e-commerce transaction flows for a payments platform processing \$90B annually across 140K+ merchants.
+  \item Designed and implemented a reusable multifactor authentication framework for PCI 4.0 compliance, delivering a shared NuGet package and building the corresponding web UI integrations across three merchant and staff portals.
+  \item Defined specifications and delivered merchant onboarding APIs that automated merchant creation and pricing configuration, reducing manual setup time by 1 hour per merchant and creating reusable services for future platform integrations.
+  \item Led migration of 13k merchant bank accounts to a new SEPA/BACS banking provider, ensuring seamless settlement operations, regulatory compliance under ISO 20022, and continuity of merchant payment processing during a critical platform transition.
+  \item Integrated a third-party AML transaction screening service via API and extended electronic bank payment records across the API and UI to capture additional customer KYC fields for 250k transactions monthly.
+  \item Developed and launched a new merchant onboarding solution featuring integrated identity verification, cutting fraud and risk screening time by 30 minutes per merchant, and managed the platform lifecycle from development to production (Kubernetes, ArgoCD) to ensure a successful rollout.
+  \item Extended a Gherkin end-to-end test automation suite, adding new scenarios and features across onboarding, payments, and authentication flows, while improving system-wide test coverage from 20\% to 60\%.
 \end{itemize}
 
 \jobheader{Software Developer}{Aug 2013 -- Jan 2022}{Middi Mainframe Associates Ltd.}{Nanaimo, BC}
-{\small\color{textgray!80}\textit{Enterprise retail/marina management platform used by municipal marinas, harbour authorities, and retailers.}}\\[-8pt]
+{\small\color{textgray!80}\textit{Full-Stack engineer for Controller Series Software, an enterprise retail/marina management platform used by municipal marinas, harbour authorities, and retailers.}}
 \begin{itemize}
-  \item Acted as technical point of contact for merchant clients, designing and estimating custom software solutions directly with stakeholders while delegating and coordinating development tasks across the team.
-  \item Built and maintained the TCP-based server connecting client terminals to the SQL backend, plus several standalone modules (POS, inventory, Accounting export to QuickBooks, metered billing, recurring billing runs, reservations, reporting) for enterprise retail/marina management platform.
+  \item Served as the technical point of contact for merchant clients, designing and estimating custom software solutions directly with stakeholders while coordinating development tasks across a team of five members, maintaining strong client retention with minimal client loss.
+  \item Implemented integration with QuickBooks to synchronize customers, invoices, payments, credit memos/refunds, deposits, and classes (department or line code) mapping to GL accounts to replace manual input from reconciliation reports.
+  \item Designed monthly billing applications for moorage, water/electric meter usage, replacing manual and paper-based processes with digital workflows for over 40 unique enterprise retail/marina businesses across the province.
+  \item Created the Honeywell inventory barcode scanner Android app to perform inventory checks comparing expected versus actual counts, reducing inventory check time in half.
 \end{itemize}
 
 % --- Education ---
 \section*{Education}
 \textbf{B.Sc., Major in Computing Science} \hfill {\color{textgray!80} September 2009 -- 2013}\\
 {\color{textgray!80} Vancouver Island University \hfill Nanaimo, BC}
+
+% --- Certifications ---
+\section*{Certifications}
+Google Cloud Skills Boost (2025)
 
 \end{document}
