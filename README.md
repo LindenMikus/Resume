@@ -24,11 +24,11 @@ pdflatex resume.tex
 
 Every push to `main` (and every PR) triggers `.github/workflows/build.yml`, which compiles `resume.tex` with pdfLaTeX and:
 
-- uploads `resume.pdf` as a workflow artifact (zipped, from the Actions run's summary page) on every push and PR
-- on pushes to `main`, publishes/updates a `latest` GitHub Release with `resume.pdf` attached as a direct-download asset — always available at:
+- uploads the PDF (renamed to `Linden-Mikus-Resume.pdf`) as a workflow artifact (zipped, from the Actions run's summary page) on every push and PR
+- on pushes to `main`, publishes/updates a `latest` GitHub Release with `Linden-Mikus-Resume.pdf` attached as a direct-download asset — always available at:
 
   ```
-  https://github.com/LindenMikus/Resume/releases/latest/download/resume.pdf
+  https://github.com/LindenMikus/Resume/releases/latest/download/Linden-Mikus-Resume.pdf
   ```
 
 ## Editing

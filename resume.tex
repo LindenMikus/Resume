@@ -1,7 +1,7 @@
 \documentclass[10.5pt]{article}
 
 % --- Single column, ATS-safe structure — sans font + accent color ---
-\usepackage[margin=0.55in]{geometry}
+\usepackage[margin=0.5in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{carlito}
 \renewcommand{\familydefault}{\sfdefault}
@@ -10,6 +10,12 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={Linden Mikus - Resume},
+  pdfauthor={Linden Mikus},
+  pdfsubject={Senior Software Engineer Resume},
+  pdfkeywords={Senior Software Engineer, .NET, C\#, Payments, Fintech, DevOps, Kubernetes}
+}
 \usepackage{xcolor}
 
 \definecolor{accent}{HTML}{1F4E5A}
@@ -24,7 +30,7 @@
 \titleformat{\section}
   {\color{accent}\bfseries\fontsize{11}{13}\selectfont}
   {}{0em}{}[{\color{rulelight}\titlerule[0.9pt]}]
-\titlespacing{\section}{0pt}{8pt}{3pt}
+\titlespacing{\section}{0pt}{6pt}{2pt}
 
 \setlist[itemize]{leftmargin=16pt, labelsep=6pt, labelwidth=10pt, itemindent=0pt, topsep=2pt, itemsep=0pt, parsep=0pt}
 \newcommand{\sqbullet}{\raisebox{0.4ex}{\textcolor{accentlight}{\rule{3.2pt}{3.2pt}}}}
@@ -36,7 +42,7 @@
 
 % #1 title  #2 dates  #3 org  #4 location
 \newcommand{\jobheader}[4]{%
-  \vspace{9pt}
+  \vspace{7pt}
   \textbf{#1} \hfill {\color{accentlight}\small #2}\\
   {\small\color{textgray!80} #3} \hfill {\small\color{textgray!80} #4}\\[-2pt]%
 }
@@ -55,16 +61,8 @@
 \vspace{-4pt}
 
 % --- Profile ---
-\section*{Profile}
-Senior Software Engineer with \yearsexperience{} years of experience building full-stack platforms for mission-critical financial systems. Combines deep expertise in payments, billing, onboarding, compliance, and RESTful APIs with hands-on ownership across cloud infrastructure, Kubernetes, and CI/CD.
-
-% --- Skills ---
-\section*{Skills}
-\textbf{\color{accentlight}Languages:} C\#, SQL, Java, PowerShell, Python, Ruby, Javascript, TypeScript \\
-\textbf{\color{accentlight}Frameworks:} ASP.NET, Django, React, Angular \\
-\textbf{\color{accentlight}Databases:} MS SQL Server, PostgreSQL \\
-\textbf{\color{accentlight}Platform \& DevOps:} GCP, AWS, Docker, Kubernetes, ArgoCD \\
-\textbf{\color{accentlight}Testing / QA:} xUnit, NUnit, Gherkin, E2E automation
+\section*{Professional Overview}
+Senior Software Engineer with \yearsexperience{} years of experience building full-stack platforms for mission-critical financial systems. Combines deep expertise in payments, billing, onboarding, compliance, and RESTful APIs with hands-on ownership across cloud infrastructure, Kubernetes, and CI/CD, leveraging AI-assisted development tools (Claude Code, GitHub Copilot) to accelerate delivery.
 
 % --- Experience ---
 \section*{Experience}
@@ -76,7 +74,7 @@ Senior Software Engineer with \yearsexperience{} years of experience building fu
   \item Designed and implemented a reusable multifactor authentication framework for PCI 4.0 compliance, delivering a shared NuGet package and building the corresponding web UI integrations across three merchant and staff portals.
   \item Defined specifications and delivered merchant onboarding APIs that automated merchant creation and pricing configuration, reducing manual setup time by 1 hour per merchant and creating reusable services for future platform integrations.
   \item Led migration of 13k merchant bank accounts to a new SEPA/BACS banking provider, ensuring seamless settlement operations, regulatory compliance under ISO 20022, and continuity of merchant payment processing during a critical platform transition.
-  \item Integrated a third-party AML transaction screening service via API and extended electronic bank payment records across the API and UI to capture additional customer KYC fields for 250k transactions monthly.
+  \item Integrated a third-party Anti-Money Laundering (AML) transaction screening service via API and extended electronic bank payment records across the API and UI to capture additional customer KYC fields for 250k transactions monthly.
   \item Developed and launched a new merchant onboarding solution featuring integrated identity verification, cutting fraud and risk screening time by 30 minutes per merchant, and managed the platform lifecycle from development to production (Kubernetes, ArgoCD) to ensure a successful rollout.
   \item Extended a Gherkin end-to-end test automation suite, adding new scenarios and features across onboarding, payments, and authentication flows, while improving system-wide test coverage from 20\% to 60\%.
 \end{itemize}
@@ -90,9 +88,19 @@ Senior Software Engineer with \yearsexperience{} years of experience building fu
   \item Created the Honeywell inventory barcode scanner Android app to perform inventory checks comparing expected versus actual counts, reducing inventory check time in half.
 \end{itemize}
 
+% --- Skills ---
+\section*{Skills}
+\textbf{\color{accentlight}Process \& Delivery:} SDLC, Agile/Scrum, Kanban, Change Management, Incident Management, Project Management \\
+\textbf{\color{accentlight}Languages:} C\#, SQL, Java, PowerShell, Python, Ruby, Javascript, TypeScript, PHP \\
+\textbf{\color{accentlight}Frameworks \& Architecture:} ASP.NET, Razor Pages, WinForms, Blazor, Django, React, Angular, RESTful APIs, Microservices, OpenApi \\
+\textbf{\color{accentlight}Databases:} MS SQL Server, PostgreSQL, SQLite, MySQL \\
+\textbf{\color{accentlight}Platform \& DevOps:} Git, GCP, AWS, Docker, Kubernetes, Terraform, ArgoCD, Jenkins \\
+\textbf{\color{accentlight}Testing \& Observability:} xUnit, NUnit, JUnit, pytest Moq, Gherkin, E2E automation, Elasticsearch, Kibana \\
+\textbf{\color{accentlight}IDE \& Tooling:} Visual Studio, VSCode, SSMS, PgAdmin, Rancher Desktop, Intellij, Rubymine, TortoiseGit
+
 % --- Education ---
 \section*{Education}
-\textbf{B.Sc., Major in Computing Science} \hfill {\color{textgray!80} September 2009 -- 2013}\\
+\textbf{Bachelor of Science (BSc), Major in Computing Science} \hfill {\color{textgray!80} September 2009 -- 2013}\\
 {\color{textgray!80} Vancouver Island University \hfill Nanaimo, BC}
 
 % --- Certifications ---

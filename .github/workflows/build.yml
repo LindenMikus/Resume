@@ -22,11 +22,14 @@ jobs:
         with:
           root_file: resume.tex
 
+      - name: Rename compiled PDF
+        run: cp resume.pdf Linden-Mikus-Resume.pdf
+
       - name: Upload compiled PDF
         uses: actions/upload-artifact@v4
         with:
           name: resume
-          path: resume.pdf
+          path: Linden-Mikus-Resume.pdf
           if-no-files-found: error
 
       - name: Publish latest release
@@ -38,5 +41,5 @@ jobs:
           body: Auto-published from the latest push to main.
           allowUpdates: true
           replacesArtifacts: true
-          artifacts: resume.pdf
+          artifacts: Linden-Mikus-Resume.pdf
           token: ${{ secrets.GITHUB_TOKEN }}
