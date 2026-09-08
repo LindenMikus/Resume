@@ -1,7 +1,7 @@
 \documentclass[10.5pt]{article}
 
 % --- Single column, ATS-safe structure — sans font + accent color ---
-\usepackage[margin=0.45in]{geometry}
+\usepackage[margin=0.5in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{carlito}
 \renewcommand{\familydefault}{\sfdefault}
@@ -30,10 +30,9 @@
 \titleformat{\section}
   {\color{accent}\bfseries\fontsize{11}{13}\selectfont}
   {}{0em}{}[{\color{rulelight}\titlerule[0.9pt]}]
-\titlespacing{\section}{0pt}{4pt}{2pt}
+\titlespacing{\section}{0pt}{6pt}{2pt}
 
-\setlist[itemize]{leftmargin=16pt, labelsep=6pt, labelwidth=10pt, itemindent=0pt, topsep=1pt, itemsep=0pt, parsep=0pt}
-\linespread{0.98}\selectfont
+\setlist[itemize]{leftmargin=16pt, labelsep=6pt, labelwidth=10pt, itemindent=0pt, topsep=2pt, itemsep=0pt, parsep=0pt}
 \newcommand{\sqbullet}{\raisebox{0.4ex}{\textcolor{accentlight}{\rule{3.2pt}{3.2pt}}}}
 \renewcommand{\labelitemi}{\sqbullet}
 
@@ -43,7 +42,7 @@
 
 % #1 title  #2 dates  #3 org  #4 location
 \newcommand{\jobheader}[4]{%
-  \vspace{5pt}
+  \vspace{7pt}
   \textbf{#1} \hfill {\color{accentlight}\small #2}\\
   {\small\color{textgray!80} #3} \hfill {\small\color{textgray!80} #4}\\[-2pt]%
 }
@@ -63,7 +62,7 @@
 
 % --- Profile ---
 \section*{Professional Overview}
-Senior Software Engineer with \yearsexperience{} years building full-stack platforms for mission-critical financial systems. Combines deep expertise in payments, billing, onboarding, compliance, and RESTful APIs with hands-on ownership across cloud infrastructure, Kubernetes, and CI/CD, using AI-assisted development tools (Claude Code, GitHub Copilot) to accelerate delivery.
+Senior Software Engineer with \yearsexperience{} years building full-stack platforms for mission-critical financial systems. Combines deep expertise in payments, billing, onboarding, compliance, and RESTful APIs with a track record of incremental .NET Framework to .NET Core modernization and hands-on ownership across cloud infrastructure, Kubernetes, and CI/CD, using AI-assisted development tools (Claude Code, GitHub Copilot) to accelerate delivery.
 
 % --- Experience ---
 \section*{Experience}
@@ -71,24 +70,29 @@ Senior Software Engineer with \yearsexperience{} years building full-stack platf
 \jobheader{Sr. Software Engineer}{Jan 2022 -- Aug 2026}{Shift4 Payments / Worldline}{Victoria, BC}
 {\small\color{textgray!80}\textit{Full-Stack engineer leading projects to completion across three platforms (e-commerce and billing, card present gateway, merchant onboarding) in a 24/7 operation (Bambora division).}}
 \begin{itemize}
-  \item Supported end-to-end payment processing across card-present (EMV chip, NFC/contactless, magnetic stripe), card-not-present, and e-commerce flows on a platform processing \$90B annually across 140K+ merchants.
+  \item Migrated .NET Framework applications to .NET Core incrementally: parallel SDK-style projects linking the original sources, compile-time symbols for runtime differences, Core-only replacements where files could not cross, then app-by-app cutover onto a supported cross-platform runtime in Linux containers, with no freeze on feature work.
+  \item Supported end-to-end payment processing across card-present (EMV chip, NFC/contactless, magnetic stripe), card-not-present, and e-commerce flows on a platform serving 500+ ISVs and 140K+ total merchants.
   \item Designed a reusable multifactor authentication framework for PCI 4.0 compliance, shipping a shared NuGet package and web UI integrations across three merchant and staff portals, with a delegated permission model letting parent accounts enforce enrollment and issue MFA resets for users beneath them.
   \item Defined specifications and delivered merchant onboarding APIs automating merchant creation and pricing configuration, cutting manual setup by 1 hour per merchant and creating reusable services for later integrations.
   \item Led migration of 13k merchant bank accounts to a new SEPA/BACS banking provider, maintaining settlement continuity and ISO 20022 regulatory compliance through a critical platform transition.
   \item Integrated a third-party Anti-Money Laundering (AML) screening service across concurrent background workers, using idempotency keys, retry with exponential backoff and jitter, circuit-breaking on sustained failure, and an audit trail feeding daily manual review, for 250k transactions monthly.
   \item Developed and launched a merchant onboarding solution with integrated identity verification, cutting fraud and risk screening by 30 minutes per merchant, and owned its lifecycle through to production on Kubernetes and ArgoCD.
+  \item Implemented structured logging, dashboards, alerting, and tracing across services; identified sensitive data reaching log output and authored the logging and validation-handling standards that closed it.
   \item Extended a Gherkin end-to-end test automation suite, adding new scenarios and features across onboarding, payments, and authentication flows, while improving system-wide test coverage from 20\% to 60\%.
   \item Built a Docker Compose repository that stands up the entire platform stack on a developer machine, then taught and onboarded engineers from other teams onto it.
+  \item Delivered an end-to-end solution for flexible channel partner commission payouts to multiple school ISV businesses to assist in increasing cash flow from monthly to as low as daily and provide API/UI reporting with additional statement details for reconciliation.
 \end{itemize}
 
 \jobheader{Software Developer}{Aug 2013 -- Jan 2022}{Middi Mainframe Associates Ltd.}{Nanaimo, BC}
 {\small\color{textgray!80}\textit{Full-Stack engineer for Controller Series Software, an enterprise retail/marina management platform used by municipal marinas, harbour authorities, and retailers.}}
 \begin{itemize}
+  \item Modernized the legacy .NET Framework codebase onto .NET Core using the same linked-source, parallel-project approach, and replaced legacy TCP server functionality with a new .NET Core RESTful API so integrators worked against a versioned contract rather than a socket.
+  \item Integrated card payments through a third-party service in point-of-sale software, covering stored card tokenization, retry-on-decline handling, payment method management and void/returns. This setup tied into the recurring billing generating monthly charges for moorage and metered water and electricity for 40+ enterprise retail and marina businesses.
   \item Partnered directly with enterprise clients as primary technical point of contact, scoping and estimating custom software while coordinating a team of five developers across an 8+ year engagement.
-  \item Designed and maintained the PostgreSQL data layer across production deployments, including schema design, EXPLAIN-plan analysis and indexing decisions, CTEs, window and recursive queries, backup and restore procedures, and major version upgrades.
+  \item Designed and maintained the SQL Server and PostgreSQL data layers across production deployments, including schema design, temporal tables, stored procedures, EXPLAIN-plan analysis and indexing decisions, CTEs, window and recursive queries, backup and restore procedures, and major version upgrades, mostly through Dapper and ADO.NET.
   \item Implemented a QuickBooks integration synchronizing customers, invoices, payments, credit memos/refunds, deposits, and class-to-GL-account mapping, replacing manual entry from reconciliation reports.
-  \item Designed monthly billing applications for moorage and water/electric metering, replacing paper-based processes with digital workflows for 40+ enterprise retail and marina businesses across the province.
   \item Created the Honeywell inventory barcode scanner Android app to perform inventory checks comparing expected versus actual counts, reducing inventory check time in half.
+  \item Built the financial and operational reporting the businesses ran on, including over 120 custom reports across inventory, sales, cash-out, and reservations.
 \end{itemize}
 
 % --- Skills ---
@@ -96,7 +100,7 @@ Senior Software Engineer with \yearsexperience{} years building full-stack platf
 \textbf{\color{accentlight}Process \& Delivery:} SDLC, Agile/Scrum, Kanban, Change Management, Incident Management, Project Management \\
 \textbf{\color{accentlight}Languages:} C\#, SQL, Java, PowerShell, Python, Ruby, Javascript, TypeScript, PHP, Bash \\
 \textbf{\color{accentlight}Frameworks \& Architecture:} ASP.NET, ASP.NET Core, Razor Pages, WinForms, Blazor, Django, React, Angular, RESTful APIs, Microservices, Distributed OpenAPI, Hangfire, Aspire - Distributed Apps \\
-\textbf{\color{accentlight}Data Access \& Databases:} MS SQL Server, PostgreSQL, SQLite, MySQL, Dapper, Entity Framework Core, Django ORM, Liquibase, Redis \\
+\textbf{\color{accentlight}Data Access \& Databases:} MS SQL Server, PostgreSQL, SQLite, MySQL, ADO.NET, Dapper, Entity Framework Core, Django ORM, Liquibase, Redis \\
 \textbf{\color{accentlight}Platform \& DevOps:} Git, GCP, AWS, Docker, Kubernetes, Ansible, ArgoCD, Jenkins, Terraform \\
 \textbf{\color{accentlight}Testing \& Observability:} xUnit, NUnit, JUnit, pytest, Moq, Testcontainers, Gherkin, Playwright, E2E automation, Elasticsearch, Kibana \\
 \textbf{\color{accentlight}IDE \& Tooling:} Visual Studio, VSCode, SSMS, PgAdmin, Rancher Desktop, Intellij, Rubymine, TortoiseGit
