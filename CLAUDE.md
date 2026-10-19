@@ -43,8 +43,8 @@ The folder name is the company, so the files inside do not repeat it.
   toward the job description). Often the generic resume is submitted unchanged,
   in which case the folder has no resume file at all.
 
-  A tailored resume is **always one page.** Since the generic version may run
-  longer, tailoring is as much about selection as rewording: drop the bullets
+  A tailored resume has **no fixed page limit.** Tailoring is still as much
+  about selection as rewording: drop the bullets
   least relevant to the posting, merge ones that overlap, and reorder what
   remains so the strongest evidence for that job comes first. Say which bullets
   were dropped and why, rather than cutting silently.
@@ -118,9 +118,15 @@ paragraph on client-facing or embedded delivery where relevant, and a closing
 line on location and interest in the role.
 
 Never close with "I am available immediately" or any other statement of
-availability; that is a question for the recruiter to ask. State location, then
-name the work itself as the thing worth taking further: "Modernizing a platform
-the size of Dayforce's is the work I would be interested in discussing further."
+availability; that is a question for the recruiter to ask. Also avoid the stock
+"...is work I would love to discuss further" / "I would welcome a conversation"
+sign-off. State location, then close on something personable and specific to
+this role: the people the product serves, or the concrete problem it solves,
+in a line that reads as genuine interest rather than a formula. Write a fresh
+one for each company; never reuse a previous letter's closing. Example for
+Proof: "I would enjoy building the tools that let a small firm, or someone
+representing themselves, get papers served and filed without the usual
+runaround." Keep it grounded in the posting; do not invent a personal story.
 
 ## Building
 
@@ -154,8 +160,8 @@ pdftotext resume.pdf - | head -5
 ```
 
 The header line should read as the name, address and contact details, with no
-stray `3pt]` fragments. `pdfinfo resume.pdf` confirms a tailored resume or a
-cover letter is still one page.
+stray `3pt]` fragments. `pdfinfo cover-letter.pdf` confirms a cover letter is
+still one page.
 
 ## Git
 

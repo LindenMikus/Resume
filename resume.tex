@@ -9,12 +9,13 @@
 \usepackage{array}
 \usepackage{enumitem}
 \usepackage{titlesec}
+\usepackage{needspace}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
-  pdftitle={Linden Mikus - Resume},
+  pdftitle={Linden Mikus - Senior Software Engineer Resume},
   pdfauthor={Linden Mikus},
   pdfsubject={Senior Software Engineer Resume},
-  pdfkeywords={Senior Software Engineer, .NET, C\#, Payments, Fintech, DevOps, Kubernetes}
+  pdfkeywords={Senior Software Engineer, Full Stack, .NET, C\#, SQL, ASP.NET, Payments, Fintech, PCI DSS, Kubernetes, CI/CD}
 }
 \usepackage{xcolor}
 
@@ -42,6 +43,7 @@
 
 % #1 title  #2 dates  #3 org  #4 location
 \newcommand{\jobheader}[4]{%
+  \needspace{6\baselineskip}%
   \vspace{7pt}
   \textbf{#1} \hfill {\color{accentlight}\small #2}\\
   {\small\color{textgray!80} #3} \hfill {\small\color{textgray!80} #4}\\[-2pt]%
@@ -55,60 +57,67 @@
   {\small\color{textgray!75}
     Victoria, BC \;\textcolor{rulelight}{|}\; lindenmikus@gmail.com \;\textcolor{rulelight}{|}\; (250) 618-0431 \;\textcolor{rulelight}{|}\;
     \href{https://www.linkedin.com/in/linden-mikus/}{linkedin.com/in/linden-mikus}}\\[4pt]
-  {\bfseries\color{accent}\small SENIOR FULL STACK ENGINEER \;\textcolor{rulelight}{|}\; .NET \;\textcolor{rulelight}{|}\; PAYMENTS \& MONEY MOVEMENT}
+  {\bfseries\color{accent}\small SENIOR SOFTWARE ENGINEER \;\textcolor{rulelight}{|}\; FULL STACK .NET \;\textcolor{rulelight}{|}\; PAYMENTS \& MONEY MOVEMENT}
 \end{center}
 
 \vspace{-4pt}
 
-% --- Profile ---
-\section*{Professional Overview}
-Senior Software Engineer with \yearsexperience{} years building full-stack platforms for mission-critical financial systems. Combines deep expertise in payments, billing, onboarding, compliance, and RESTful APIs with a track record of incremental .NET Framework to .NET Core modernization and hands-on ownership across cloud infrastructure, Kubernetes, and CI/CD, using AI-assisted development tools (Claude Code, GitHub Copilot) to accelerate delivery.
+% --- Summary ---
+\section*{Summary}
+Senior Software Engineer with \yearsexperience{} years building full-stack .NET platforms, most recently for a payments gateway serving 500+ ISVs and 140K+ merchants. Built merchant onboarding that cut risk screening from over an hour to 30 minutes, and delivered bank-provider migrations, PCI DSS 4.0 MFA and AML screening from schema design to Kubernetes, backed by EFT, ACH and SEPA/BACS domain depth. Technical lead on cross-team projects from design spec to rollout, and a mentor to newer engineers.
 
 % --- Experience ---
 \section*{Experience}
 
-\jobheader{Sr. Software Engineer}{Jan 2022 -- Aug 2026}{Shift4 Payments / Worldline}{Victoria, BC}
-{\small\color{textgray!80}\textit{Full-Stack engineer leading projects to completion across three platforms (e-commerce and billing, card present gateway, merchant onboarding) in a 24/7 operation (Bambora division).}}
+\jobheader{Senior Software Engineer}{Jan 2022 -- Aug 2026}{Shift4 (formerly Worldline / Bambora)}{Victoria, BC}
+{\small\color{textgray!80}\textit{Full-stack engineer across three platforms (e-commerce and billing; Roam card-present gateway and merchant management on Java/Groovy and Angular; merchant onboarding) covering card-present (EMV, NFC, magnetic stripe), card-not-present, and e-commerce flows.}\par}
 \begin{itemize}
-  \item Facilitated migration of 13k merchant bank accounts and mandates to a new SEPA/BACS banking provider before a hard bank cutoff: reworked the account/mandate schema, migrated the data, and bulk-created mandates, maintaining settlement continuity and ISO 20022 regulatory compliance.
-  \item Developed and launched a merchant onboarding solution with integrated identity verification, on-boarding about 1,000 merchants a month and cutting fraud and risk screening by 30 minutes per merchant, and owned its lifecycle through to production on Kubernetes and ArgoCD.
-  \item Designed and owned a pricing package API/UI from spec to production, moving merchant pricing from per-merchant configuration to reusable channel-partner packages (buy rate, sell rate, spread, revenue share). Shipped a modern, audited API with webhooks behind the pricing UI.
-  \item Integrated a third-party sanctions and Anti-Money Laundering (AML) screening service into the batch scheduler for 250k transactions monthly: parallel screening, cached JWT auth, retry with exponential back-off and jitter, plus automatic fail-safe with plan, monitoring and alerts for when the service is unavailable.
-  \item Designed a reusable multifactor authentication framework for PCI 4.0 compliance, shipping a shared NuGet package and web UI integrations across three merchant and staff portals, rolled out to 140k merchants, with a delegated permission model letting parent accounts enforce enrollment and issue MFA resets for users beneath them.	
-  \item Delivered an end-to-end solution for flexible channel partner commission payouts to multiple school ISV businesses to assist in increasing cash flow from monthly to as low as daily and provide API/UI reporting with additional statement details for reconciliation.
-  \item Introduced a batch transfer percentage based fee including a flat fee cap charged on completed, non-declined transactions. Updated admin screens to manage fee and reports for reconciliation.  
-  \item Batch processing and EFT robustness - reduced load on main database and ensured no orphaned files and no duplicate returns.
-  \item Re-branded company statements, invoices, email templates and white-labeled user-interfaces to align with global company. 
-  \item Created on-boarding application flows for ISO and Gateway type merchants collecting company, owner, bank and processor information for integration into back-end portals through a micro-service platform.
-  \item Extended a Gherkin end-to-end test automation suite, adding new scenarios and features across onboarding, payments, and authentication flows, while improving system-wide test coverage from 20\% to 60\%.
-  \item Built a Docker Compose repository that stands up the entire platform stack on a developer machine, then taught and onboarded engineers from other teams onto it.
-  \item Migrated .NET Framework applications to .NET Core incrementally: parallel SDK-style projects linking the original sources, compile-time symbols for runtime differences.
-  \item Supported end-to-end payment processing across card-present (EMV chip, NFC/contactless, magnetic stripe), card-not-present, and e-commerce flows on a platform serving 500+ ISVs and 140K+ total merchants.
+  \item Technical lead on four projects (pricing packages, MFA, flex commissions, percentage-based fees). Wrote design specs and presented them in cross-team reviews, ran product demos and learning sessions, and mentored new hires and juniors on the onboarding and bank-transfer systems.
+  \item Drove the migration of 13k merchant bank accounts and mandates to a new SEPA/BACS banking provider within a 3-month window before a hard bank cutoff: reworked the account/mandate schema, migrated the data, and bulk-created mandates. Zero failed settlements at cutover, with in-flight transfers and rejects completing on the old provider while new requests ran on the new one, maintaining ISO 20022 compliance.
+  \item Designed a reusable multifactor authentication framework for PCI DSS 4.0 compliance, shipped as a shared NuGet package with web UI integrations across three merchant and staff portals. Rolled out to 140k merchants over 6 months, starting with a pilot group and expanding through progressively larger cohorts, resolving authenticator-app QR and timeout issues along the way.
+  \item Added a delegated MFA permission model letting channel partners reset MFA for the merchants and users beneath them, so partners could support their own merchants and fewer reset requests reached the support team.
+  \item Developed and launched a merchant onboarding platform with integrated identity verification, automating document review, stakeholder and company KYC, and sanctions/blacklist lookups. Cut risk screening from over an hour to 30 minutes or less per merchant, at about 1,000 merchants a month.
+  \item Built multi-step ISO and Gateway application flows (bank details, terminal setup, personal guarantee, signing authority) on C\# and ASP.NET with SQL Server and a React and Python/Django microservice stack (Celery, Redis, PostgreSQL on AWS), with full unit test coverage and French localization. Owned the system through to production on Kubernetes and ArgoCD.
+  \item Integrated a third-party sanctions and Anti-Money Laundering (AML) screening service into the batch scheduler for 250k transactions monthly: parallel screening, cached JWT auth, idempotency keys, retry with exponential back-off and jitter, an automatic fail-safe with monitoring and alerts for when the service is unavailable, and an audit trail feeding daily manual review.
+  \item Instrumented services with distributed request tracing and event-logging middleware for cross-service observability, surfaced in Elasticsearch and Kibana.
+  \item Architected a pricing package API and UI and took it from spec to production, replacing per-merchant pricing with reusable channel-partner packages (buy rate, sell rate, spread, revenue share). A partner contract change that took hours of updating thousands of sub-merchants one by one becomes a single package edit. Shipped as an audited API with webhooks.
+  \item Delivered flexible channel-partner commission payouts for three school ISV partners processing about 1.5M commissions a year combined, moving payouts from monthly to as often as daily, with API/UI reporting and statement detail for reconciliation.
+  \item Introduced a percentage-based batch transfer fee with a flat-fee cap, an alternative to flat-rate pricing, adopted by a channel partner with 1,500 merchants processing about \$1M a month in bank transfers. Built admin fee management and reconciliation reporting.
+  \item Hardened EFT batch processing: moved reporting onto a read-only replica and restructured batch start to cut contention on the main database, made batch deletion clean up files on disk (or flag them in the database), prevented duplicate returns on already rejected or returned EFTs, removed an 8-character EFT id limit, and added unit tests.
+  \item Modernized 5 applications from .NET Framework to modern .NET (6, 8, and later 10) incrementally, using parallel SDK-style projects linking the original sources and compile-time symbols for runtime differences, gaining performance, security and library compatibility and laying the groundwork for containers and Linux hosting.
+  \item Extended a Gherkin end-to-end test automation suite with new scenarios across onboarding, payments, and authentication flows, raising system-wide test coverage from 20\% to 60\%.
+  \item Containerized the full platform stack for local development with Docker Compose, cutting new-developer setup from days or weeks to under an hour. Onboarded engineers from three teams onto it.
+  \item Re-branded statements, invoices, email templates and white-labeled user interfaces across three portals to align with the global company, delivered within a year-long deadline.
 \end{itemize}
 
-\jobheader{Software Developer}{Aug 2013 -- Jan 2022}{Middi Mainframe Associates Ltd.}{Nanaimo, BC}
-{\small\color{textgray!80}\textit{Full-Stack engineer for Controller Series Software, an enterprise retail/marina management platform used by municipal marinas, harbour authorities, and retailers.}}
+\jobheader{Senior Software Developer}{Aug 2013 -- Jan 2022}{Controller Series Software (Middi Mainframe Associates Ltd.)}{Nanaimo, BC}
+{\small\color{textgray!80}\textit{Promoted from Junior to Intermediate (2015) to Senior (2017), then acting as Engineering Supervisor. Full-stack engineer on an enterprise retail/marina management platform used by municipal marinas, harbour authorities, and retailers.}\par}
 \begin{itemize}
-  \item Led the card payment integration (OpenEdge, processing under Global Payments) in point-of-sale software, covering stored card tokenization, retry-on-decline handling, payment method management and void/returns. This setup tied into the recurring billing generating monthly charges for moorage and metered water and electricity for 40+ enterprise retail and marina businesses.
-  \item Developed recurring billing applications for moorage, water/electricity usage and integration into POS for fuel consumption connected to embedded Computrol system.
-  \item Partnered directly with enterprise clients as primary technical point of contact, scoping and estimating custom software while coordinating a team of four developers.
+  \item Led the Global Payments OpenEdge card integration in the POS: card-present, card-not-present and MOTO transactions, tokenization to customer profiles, retry-on-decline, payment method management, and voids and returns. Powered automated monthly charges for moorage and metered water and electricity across 40+ marina and retail businesses.
+  \item Supervised a team of four developers: managed and prioritized the team's ticket backlog and decided what to bring into scope or cut.
+  \item Visited partner sites to observe how the system was used day to day, set up POS hardware (pinpads, receipt printers, handheld scanners), gathered enhancement requests, and turned them into designs and quotes with my manager as the clients' primary technical contact.
+  \item Shipped core POS and back-office modules: quotes, orders and invoices with repricing, discounting and tax exemption, multi-item packages, moorage agreements, receipts, customer management, inventory tracking and adjustments, purchase-order receiving, barcode and label printing, and per-partner configuration for a heavily customized codebase.
+  \item Developed reservation management with a real-time visual map for marinas, campgrounds and RV sites.
+  \item Engineered recurring billing applications for moorage and metered water/electricity usage, plus an integration with an embedded Computrol fuel-dispensing system to capture fuel readings and charge customers at the POS.
   \item Designed and maintained the SQL Server and PostgreSQL data layers across production deployments, including schema design, temporal tables, stored procedures, EXPLAIN-plan analysis and indexing decisions, CTEs, window and recursive queries, backup and restore procedures, and major version upgrades.
   \item Implemented a QuickBooks integration synchronizing customers, invoices, payments, credit memos/refunds, deposits, and class-to-GL-account mapping, replacing manual entry from reconciliation reports.
-  \item Created the Honeywell inventory barcode scanner Android app to perform inventory checks comparing expected versus actual counts, reducing inventory check time in half.
+  \item Created a Honeywell barcode scanner Android app for inventory checks comparing expected versus actual counts, cutting inventory check time by half.
   \item Built the financial and operational reporting the businesses ran on, including over 120 custom reports across inventory, sales, cash-out, and reservations.
 \end{itemize}
 
 % --- Skills ---
 \section*{Skills}
-\textbf{\color{accentlight}Process \& Delivery:} SDLC, Agile/Scrum, Kanban, Change Management, Incident Management, Project Management \\
-\textbf{\color{accentlight}Languages:} C\#, SQL, Java, PowerShell, Python, Ruby, Javascript, TypeScript, PHP, Bash \\
-\textbf{\color{accentlight}Frameworks \& Architecture:} ASP.NET, Razor Pages, WinForms, Blazor, Django, React, Angular, RESTful APIs, Microservices, Distributed OpenAPI, NSwag, Hangfire, Aspire - Distributed Apps \\
-\textbf{\color{accentlight}Async \& Integration:} Hangfire, Celery, Redis queues, webhooks, third-party API integration, retry and idempotency patterns \\
-\textbf{\color{accentlight}Data Access \& Databases:} MS SQL Server, PostgreSQL, SQLite, MySQL, ADO.NET, Dapper, Entity Framework Core, Django ORM, Liquibase, Redis \\
-\textbf{\color{accentlight}Platform \& DevOps:} Git, AWS and GCP (managed Kubernetes, object storage, secret management, managed SQL, container registries), Docker, Kubernetes, Ansible, ArgoCD, Jenkins, Terraform \\
-\textbf{\color{accentlight}Payments:} ACH, EFT, SEPA, BACS, NACHA, CPA 1464, ISO 20022, PCI 4.0, sanctions/AML screening \\
-\textbf{\color{accentlight}Testing \& Observability:} xUnit, NUnit, JUnit, pytest, Moq, Testcontainers, Gherkin, Playwright, E2E automation, Elasticsearch, Kibana \\
-\textbf{\color{accentlight}IDE \& Tooling:} Visual Studio, VSCode, SSMS, PgAdmin, Rancher Desktop, Intellij, Rubymine, TortoiseGit
+\textbf{\color{accentlight}Languages:} C\#, SQL, Python, TypeScript, JavaScript, Java, Groovy, PowerShell, Ruby \\
+\textbf{\color{accentlight}Frameworks \& Architecture:} .NET (6, 8, 10), ASP.NET, RESTful APIs, Django, Razor Pages, React, Angular, Blazor, WinForms, Microservices, OpenAPI (Swagger), NSwag, .NET Aspire \\
+\textbf{\color{accentlight}Async \& Integration:} Hangfire, Celery, Webhooks, Third-Party API Integration, Retry and Idempotency Patterns, OAuth2, OIDC \\
+\textbf{\color{accentlight}Data:} MS SQL Server, PostgreSQL, Redis, SQLite, MySQL, Entity Framework Core, Dapper, ADO.NET, Django ORM, Liquibase \\
+\textbf{\color{accentlight}Cloud \& DevOps:} AWS, GCP (managed Kubernetes, object storage, secret management, managed SQL, container registries), Docker, Kubernetes, ArgoCD, IIS, Terraform, Ansible, CI/CD (GitLab CI/CD, GitHub Actions, Jenkins, Octopus Deploy), Feature Flags, Git \\
+\textbf{\color{accentlight}Payments \& Compliance:} ACH, EFT, SEPA, BACS, NACHA, CPA 1464, ISO 20022, PCI DSS 4.0, KYC/KYB, Sanctions/AML Screening, Tokenization, Card-Present (EMV, NFC), Card-Not-Present, MOTO \\
+\textbf{\color{accentlight}Testing \& Quality:} xUnit, NUnit, JUnit, pytest, Moq, Testcontainers, Gherkin, Playwright, E2E Automation, SonarQube \\
+\textbf{\color{accentlight}Observability:} OpenTelemetry, Distributed Tracing, Elasticsearch, Kibana, GCP Cloud Logging, Dashboards and Alerting \\
+\textbf{\color{accentlight}AI-Assisted Development:} Claude Code, GitHub Copilot \\
+\textbf{\color{accentlight}Process:} SDLC, Agile/Scrum, Kanban, Design Specs, Change Management, Incident Management \\
+\textbf{\color{accentlight}Tooling:} Visual Studio, VS Code, IntelliJ, RubyMine, SSMS, pgAdmin, Rancher Desktop, TortoiseGit
 
 % --- Education ---
 \section*{Education}
